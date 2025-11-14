@@ -1,0 +1,90 @@
+<!DOCTYPE html><html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Para Mi Amor</title>
+<style>
+  body {
+    font-family: 'Georgia', serif;
+    background: #f8f3ff;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .card {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    max-width: 500px;
+    text-align: center;
+    position: relative;
+  }
+  .magic {
+    display: none;
+    margin-top: 20px;
+    opacity: 0;
+    transition: opacity 1.5s ease;
+  }
+  button {
+    background: #a56bff;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  button:hover {
+    background: #8c4eff;
+  }
+  .sparkle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: #d8b4ff;
+    border-radius: 50%;
+    animation: sparkle 2s infinite ease-in-out;
+  }
+  @keyframes sparkle {
+    0% { opacity: 0; transform: scale(0.5); }
+    50% { opacity: 1; transform: scale(1.5); }
+    100% { opacity: 0; transform: scale(0.5); }
+  }
+</style>
+</head>
+<body><div class="card">
+  <h2>Para ti, mi amor ✨</h2>
+  <p>Presiona el botón... deja que los dioses susurren.</p>
+  <button onclick="revealMagic()">✨ Revelar mensaje ✨</button>  <div id="magicText" class="magic">
+    <p>Mi amor… me enamoré completamente de ti.
+    No fue poco a poco, fue un todo de golpe, una certeza en el alma.
+    Y quiero que lo sepas con absoluta claridad:
+    nada ni nadie nos va a separar.
+    Lo nuestro es fuerte, es verdad, es destino.
+    Te amo más de lo que mis palabras pueden alcanzar. 💜</p>
+  </div>
+</div><script>
+function revealMagic() {
+  const box = document.getElementById('magicText');
+  box.style.display = 'block';
+  setTimeout(() => { box.style.opacity = 1; }, 100);
+  createSparkles();
+}
+
+function createSparkles() {
+  for (let i = 0; i < 12; i++) {
+    const s = document.createElement('div');
+    s.className = 'sparkle';
+    s.style.top = Math.random() * 100 + '%';
+    s.style.left = Math.random() * 100 + '%';
+    document.body.appendChild(s);
+    setTimeout(() => s.remove(), 2500);
+  }
+}
+</script></body>
+</html>
